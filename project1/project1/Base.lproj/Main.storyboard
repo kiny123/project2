@@ -16,6 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <textField key="tableFooterView" opaque="NO" contentMode="center" contentHorizontalAlignment="left" contentVerticalAlignment="fill" text="Any text" borderStyle="roundedRect" textAlignment="justified" minimumFontSize="18" id="UR2-Ml-Vdw">
+                            <rect key="frame" x="0.0" y="99.5" width="414" height="148"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="120"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Picture" textLabel="wcB-gU-1W4" style="IBUITableViewCellStyleDefault" id="cRX-PU-Lx8">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
