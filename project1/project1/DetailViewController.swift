@@ -12,9 +12,11 @@ class DetailViewController: UIViewController {
     var selectedImage: String?
     var selectedPictureNumber = 0
     var totalPictures = 0
+    var imageCount = UserCustomDefults(imageViewCount: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         title = "\(selectedPictureNumber)/\(totalPictures)"
         navigationItem.largeTitleDisplayMode = .never
@@ -23,6 +25,19 @@ class DetailViewController: UIViewController {
         if let imageToLoad = selectedImage {
             ImageView.image = UIImage(named: imageToLoad)
         }
+        let defaults = UserDefaults.standard
+        
+        if let savedPeople = defaults.object(forKey: "imageCount") as? Data {
+            let jsonDecoder = JSONDecoder()
+
+            do {
+                imageCount = try jsonDecoder.decode(UserCustomDefults.self, from: savedPeople)
+            } catch {
+                print("Failed to count")
+            }
+        }
+        count()
+        print("\(imageCount)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,15 +49,15 @@ class DetailViewController: UIViewController {
         navigationController?.hidesBarsOnTap = false 
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func count() {
+        let jsonEncoder = JSONEncoder()
+        
+        if let savedData = try? jsonEncoder.encode(imageCount) {
+                let defaults = UserDefaults.standard
+                defaults.set(savedData, forKey: "imageCount")
+            } else {
+                print("Failed to save count of photos.")
+            }
     }
-    */
 
 }
