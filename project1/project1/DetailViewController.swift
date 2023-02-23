@@ -17,6 +17,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        assert(selectedImage != nil)
         
         title = "\(selectedPictureNumber)/\(totalPictures)"
         navigationItem.largeTitleDisplayMode = .never
@@ -36,6 +37,8 @@ class DetailViewController: UIViewController {
                 print("Failed to count")
             }
         }
+        
+        
         count()
         print("\(imageCount)")
     }
